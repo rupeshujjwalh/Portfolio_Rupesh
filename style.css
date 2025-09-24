@@ -664,14 +664,18 @@ section.gallery {
   overflow: hidden;
   background: #000;
   padding: 20px 0;
+  position: relative;
+}
+
+.gallery-wrapper {
+  overflow: hidden;
 }
 
 .gallery-track {
   display: flex;
   gap: 20px;
   width: max-content;
-  animation: scroll-left 40s linear infinite;
-  will-change: transform; /* ✅ GPU acceleration */
+  transform: translateX(0);
 }
 
 .gallery-card {
@@ -688,23 +692,10 @@ section.gallery {
   border-radius: 12px;
 }
 
-/* ✅ Infinite scroll animation */
-@keyframes scroll-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%); /* ✅ Half of total width */
-  }
-}
-
 /* Responsive */
-@media (max-width: 768px) {
-  .gallery-card { width: 180px; }
-}
-@media (max-width: 480px) {
-  .gallery-card { width: 140px; }
-}
+@media (max-width: 768px) { .gallery-card { width: 180px; } }
+@media (max-width: 480px) { .gallery-card { width: 140px; } }
+
     
 
 /* POPUP Modal */

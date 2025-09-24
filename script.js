@@ -80,7 +80,7 @@ window.addEventListener('scroll', () => {
 });
 
 
- const galleryWrapper = document.getElementById("galleryWrapper");
+ /*const galleryWrapper = document.getElementById("galleryWrapper");
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImg");
     const closeModal = document.getElementById("closeModal");
@@ -106,4 +106,20 @@ window.addEventListener('scroll', () => {
         modal.style.display = "none";
         galleryWrapper.style.animationPlayState = "running";
       }
-    });
+    });*/
+
+
+    const track = document.getElementById('gallery-track');
+let speed = 0.5; // pixels per frame, adjust as needed
+let position = 0;
+
+function animate() {
+    position -= speed;
+    if (position <= -track.scrollWidth / 2) {
+        position = 0; // reset to start
+    }
+    track.style.transform = `translateX(${position}px)`;
+    requestAnimationFrame(animate);
+}
+
+animate();
