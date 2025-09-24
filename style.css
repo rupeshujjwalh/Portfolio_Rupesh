@@ -674,8 +674,9 @@ section.gallery {
 .gallery-track {
   display: flex;
   gap: 20px;
-  width: max-content;
-  transform: translateX(0);
+  animation: scroll-left 40s linear infinite;
+  will-change: transform;
+  transform: translate3d(0,0,0); /* Force GPU acceleration */
 }
 
 .gallery-card {
